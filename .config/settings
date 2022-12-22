@@ -1,0 +1,2 @@
+defaults write io.alacritty CGFontRenderingFontSmoothingDisabled 0
+
