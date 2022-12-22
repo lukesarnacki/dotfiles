@@ -1,2 +1,3 @@
-defaults write io.alacritty CGFontRenderingFontSmoothingDisabled 0
+# Alacritty needs this to have regular fonts (otherwise font is bold)
+defaults write org.alacritty AppleFontSmoothing -int 0
 

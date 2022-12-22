@@ -1,5 +1,7 @@
 vim.opt.guicursor = ""
 
+vim.cmd.colorscheme("gruvbox")
+
 vim.opt.visualbell = true
 
 vim.opt.nu = true
