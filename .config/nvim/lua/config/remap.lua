@@ -52,3 +52,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- replace yanked word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
