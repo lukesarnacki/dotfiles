@@ -93,6 +93,7 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
 vim.cmd([[
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent> ge <cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>
 ]])
 
 local sign = function(opts)
@@ -126,6 +127,6 @@ vim.diagnostic.config({
 -- Show inlay_hints more frequently
 vim.o.updatetime = 350
 
-vim.cmd([[
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
+-- vim.cmd([[
+-- autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+-- ]])
