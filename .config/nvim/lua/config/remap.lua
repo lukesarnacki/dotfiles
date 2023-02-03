@@ -45,8 +45,8 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- quickfix navigation
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-S-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-S-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -56,3 +56,24 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+
+-- neotest
+vim.keymap.set("n", "<leader>tr", '<Cmd>lua require("neotest").run.run()<CR>')
+vim.keymap.set("n", "<leader>tf", '<Cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+vim.keymap.set("n", "<leader>td", '<Cmd>lua require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"})<CR>')
+vim.keymap.set("n", "<leader>to", '<Cmd>lua require("neotest").output_panel.toggle()<CR>')
+vim.keymap.set("n", "<leader>th", '<Cmd>lua require("neotest").output.open()<CR>')
+vim.keymap.set("n", "<leader>ts", '<Cmd>lua require("neotest").summary.toggle()<CR>')
+
+-- fugitive
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+-- undotree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+-- NERDTree
+vim.keymap.set("n", "<leader>n", vim.cmd.NERDTreeFocus)
+vim.keymap.set("n", "<leader>nt", vim.cmd.NERDTreeToggle)
+vim.keymap.set("n", "<leader>nf", vim.cmd.NERDTreeFind)

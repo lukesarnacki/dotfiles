@@ -42,7 +42,10 @@ return require('packer').startup(function(use)
             { 'j-hui/fidget.nvim' },
 
             -- shows icons for cmp
-            { 'onsails/lspkind.nvim' }
+            { 'onsails/lspkind.nvim' },
+
+            -- somehow python format doesn't work without it
+            { 'jose-elias-alvarez/null-ls.nvim' }
         }
     }
 
@@ -55,4 +58,14 @@ return require('packer').startup(function(use)
     }
 
     use 'preservim/nerdtree'
+
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "jfpedroza/neotest-elixir",
+            "nvim-neotest/neotest-python",
+        }
+    }
 end)
