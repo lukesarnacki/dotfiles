@@ -1,8 +1,9 @@
 require("neotest").setup({
-    adapters = {
-        require("neotest-python")({
-            dap = { justMyCode = false },
-        }),
-        require("neotest-elixir"),
-    },
+  adapters = {
+    require("neotest-python")({
+      dap = { justMyCode = false },
+    }),
+    require("neotest-elixir"),
+    require("neotest-jest")
+  },
 })
