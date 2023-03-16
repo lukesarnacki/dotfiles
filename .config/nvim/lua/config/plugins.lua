@@ -68,9 +68,10 @@ return require('packer').startup(function(use)
             "nvim-neotest/neotest-python",
         }
     }
+
     use {
-        'stevearc/aerial.nvim',
-        config = function() require('aerial').setup() end
+        'simrat39/symbols-outline.nvim',
+        config = function() require("symbols-outline").setup() end
     }
 
     use {

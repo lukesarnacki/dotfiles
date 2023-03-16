@@ -89,4 +89,4 @@ vim.keymap.set("n", "<leader>nf", vim.cmd.NERDTreeFind)
 
 
 -- Aerial
-vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+vim.keymap.set('n', '<leader>o', '<cmd>SymbolsOutline<CR>')
