@@ -68,4 +68,15 @@ return require('packer').startup(function(use)
             "nvim-neotest/neotest-python",
         }
     }
+    use {
+        'stevearc/aerial.nvim',
+        config = function() require('aerial').setup() end
+    }
+
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 end)

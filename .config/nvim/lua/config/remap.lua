@@ -6,6 +6,15 @@ nnoremap <silent> vv <C-w>v
 nnoremap <silent> ss <C-w>s
 ]])
 
+-- Telescope
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pf', telescope.find_files, {})
+vim.keymap.set('n', '<C-p>', telescope.git_files, {})
+vim.keymap.set('n', '<leader>b', telescope.buffers, {})
+vim.keymap.set('n', '<leader>ps', telescope.live_grep, {})
+vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
+vim.keymap.set('n', '<leader>pr', telescope.resume, {})
+
 -- Trouble
 vim.keymap.set("n", "<leader>e", vim.cmd.TroubleToggle)
 
@@ -77,3 +86,7 @@ vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>n", vim.cmd.NERDTreeFocus)
 vim.keymap.set("n", "<leader>nt", vim.cmd.NERDTreeToggle)
 vim.keymap.set("n", "<leader>nf", vim.cmd.NERDTreeFind)
+
+
+-- Aerial
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')

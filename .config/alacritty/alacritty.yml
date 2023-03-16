@@ -12,17 +12,17 @@ scrolling:
   multiplier: 3
 font:
   normal:
-    family: "Hack Nerd Font Mono"
+    family: "DroidSansMono Nerd Font"
   bold:
-    family: "Hack Nerd Font Mono"
+    family: "DroidSansMono Nerd Font"
     style: Bold
   italic:
-    family: "Hack Nerd Font Mono"
+    family: "DroidSansMono Nerd Font"
     style: Italic
   bold_italic:
-    family: "Hack Nerd Font Mono"
+    family: "DroidSansMono Nerd Font"
     style: Bold Italic
-  size: 14.0
+  size: 12.0
 # Base16 Default Dark 256 - alacritty color config
 # Chris Kempson (http://chriskempson.com)
 colors:
