@@ -11,28 +11,20 @@ require("dap-vscode-js").setup({
 for _, language in ipairs({ "typescript", "javascript" }) do
   require("dap").configurations[language] = {
     {
+      type = 'pwa-node',
+      request = 'attach',
+      name = 'Attach to Docker container',
+      remoteRoot = "/app",
+      localRoot = "${workspaceFolder}",
+      port = 9229,
+    },
+    {
       type = "pwa-node",
       request = "launch",
       name = "Launch file",
       program = "${file}",
       cwd = "${workspaceFolder}",
     },
-    {
-      type = "pwa-node",
-      request = "attach",
-      name = "Attach",
-      processId = require 'dap.utils'.pick_process,
-      cwd = "${workspaceFolder}",
-    },
-    {
-      type = "pwa-node",
-      request = "attach",
-      name = "Docker: Attach to Node",
-      remoteRoot = "/app",
-      localRoot = "${workspaceFolder}",
-      port = 9229,
-      address = "localhost"
-    }
   }
 end
 

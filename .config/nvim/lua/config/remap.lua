@@ -85,6 +85,17 @@ vim.api.nvim_set_keymap('n', '<leader>ta', ':TestSuite<CR>', { noremap = true, s
 vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<CR>', { noremap = true, silent = true })
 
+-- vim-test with debugger
+vim.api.nvim_set_keymap('n', '<leader>tdn', ':lua run_test_and_continue_dap("TestNearest")<CR>',
+{ noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tdf', ':lua run_test_and_continue_dap("TestFile")<CR>',
+{ noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tda', ':lua run_test_and_continue_dap("TestSuite")<CR>',
+{ noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tdl', ':lua run_test_and_continue_dap("TestLast")<CR>',
+{ noremap = true, silent = true })
+
+
 -- fugitive
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
