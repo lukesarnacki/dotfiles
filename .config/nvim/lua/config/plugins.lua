@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
   use({ 'ellisonleao/gruvbox.nvim' })
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use('nvim-treesitter/playground')
 
   use('mbbill/undotree')
 
@@ -86,4 +87,22 @@ return require('packer').startup(function(use)
     'https://codeberg.org/esensar/nvim-dev-container',
     requires = { 'nvim-treesitter/nvim-treesitter' }
   }
+
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
+  use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+
+  use {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+  }
+
+  use 'jparise/vim-graphql'
+
+  use 'RRethy/vim-illuminate'
+
+  use 'github/copilot.vim'
+
+  use 'vim-test/vim-test'
 end)

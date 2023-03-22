@@ -69,12 +69,21 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 -- neotest
-vim.keymap.set("n", "<leader>tr", '<Cmd>lua require("neotest").run.run()<CR>')
-vim.keymap.set("n", "<leader>tf", '<Cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
-vim.keymap.set("n", "<leader>td", '<Cmd>lua require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"})<CR>')
-vim.keymap.set("n", "<leader>to", '<Cmd>lua require("neotest").output_panel.toggle()<CR>')
-vim.keymap.set("n", "<leader>th", '<Cmd>lua require("neotest").output.open()<CR>')
-vim.keymap.set("n", "<leader>ts", '<Cmd>lua require("neotest").summary.toggle()<CR>')
+-- in favor of vim-test until containers are supported
+-- vim.keymap.set("n", "<leader>tr", '<Cmd>lua require("neotest").run.run()<CR>')
+-- vim.keymap.set("n", "<leader>tf", '<Cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+-- vim.keymap.set("n", "<leader>td", '<Cmd>lua require("neotest").run.run({vim.fn.expand("%"), strategy = "dap"})<CR>')
+-- vim.keymap.set("n", "<leader>to", '<Cmd>lua require("neotest").output_panel.toggle()<CR>')
+-- vim.keymap.set("n", "<leader>th", '<Cmd>lua require("neotest").output.open()<CR>')
+-- vim.keymap.set("n", "<leader>ts", '<Cmd>lua require("neotest").summary.toggle()<CR>')
+
+
+-- vim-test
+vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ta', ':TestSuite<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<CR>', { noremap = true, silent = true })
 
 -- fugitive
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
@@ -87,6 +96,9 @@ vim.keymap.set("n", "<leader>n", vim.cmd.NERDTreeFocus)
 vim.keymap.set("n", "<leader>nt", vim.cmd.NERDTreeToggle)
 vim.keymap.set("n", "<leader>nf", vim.cmd.NERDTreeFind)
 
-
 -- Aerial
 vim.keymap.set('n', '<leader>o', '<cmd>SymbolsOutline<CR>')
+
+-- DAP, Debugger
+vim.keymap.set("n", "<leader>db", "<Cmd>lua require('dap').toggle_breakpoint()<CR>")
+vim.keymap.set("n", "<leader>dc", "<Cmd>lua require('dap').continue()<CR>")
