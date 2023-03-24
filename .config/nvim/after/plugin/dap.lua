@@ -8,8 +8,10 @@ require("dap-vscode-js").setup({
   -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
 })
 
+local dap, dapui = require("dap"), require("dapui")
+
 for _, language in ipairs({ "typescript", "javascript" }) do
-  require("dap").configurations[language] = {
+  dap.configurations[language] = {
     {
       type = 'pwa-node',
       request = 'attach',
@@ -28,8 +30,8 @@ for _, language in ipairs({ "typescript", "javascript" }) do
   }
 end
 
-require("dapui").setup()
-local dap, dapui = require("dap"), require("dapui")
+dapui.setup()
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
