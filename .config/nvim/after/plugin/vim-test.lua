@@ -1,17 +1,17 @@
--- Set the Jest executable to run inside the Docker Compose environment
-vim.g['test#javascript#jest#executable'] = 'docker-compose exec -T store-bridge ./node_modules/.bin/jest --colors'
+local root_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+vim.g['test#javascript#jest#executable'] = 'docker-compose exec -T ' .. root_dir .. ' ./node_modules/.bin/jest --colors'
 
 vim.cmd([[
 function! DebugJestTransform(cmd) abort
-  let debug_cmd = 'docker-compose exec -T -e NODE_OPTIONS="--inspect-brk=0.0.0.0:9229" store-bridge ./node_modules/.bin/jest --colors'
-  let test_cmd = substitute(a:cmd, 'docker-compose exec -T store-bridge ./node_modules/.bin/jest', debug_cmd, '')
-  return test_cmd
+  let root_dir = fnamemodify(getcwd(), ":t")
+  let debug_cmd = 'docker-compose exec -T -e NODE_OPTIONS="--inspect-brk=0.0.0.0:9229" ' . root_dir . ' ./node_modules/.bin/jest --colors'
+  return debug_cmd
 endfunction
 
 function! WatchJestTransform(cmd) abort
-  let watch_cmd = 'docker-compose exec -T store-bridge ./node_modules/.bin/jest --watchAll --colors'
-  let test_cmd = substitute(a:cmd, 'docker-compose exec -T store-bridge ./node_modules/.bin/jest', watch_cmd, '')
-  return test_cmd
+  let root_dir = fnamemodify(getcwd(), ":t")
+  let watch_cmd = 'docker-compose exec -T ' . root_dir . ' ./node_modules/.bin/jest --watchAll --colors'
+  return watch_cmd
 endfunction
 
 let g:test#custom_transformations = {
@@ -34,22 +34,39 @@ end
 
 function _G.run_test_and_watch(test_cmd)
   local original_transformation = vim.g['test#transformation']
+  local original_strategy = vim.g['test#strategy']
   vim.g['test#transformation'] = 'watch'
+  vim.g['test#strategy'] = 'tmux_window'
   vim.cmd(test_cmd)
   vim.g['test#transformation'] = original_transformation
+  vim.g['test#strategy'] = original_strategy
 end
 
 vim.cmd([[
 function! TmuxWindowStrategy(cmd) abort
-  let tmux_new_window_command = 'tmux new-window -d -n vim-test "bash"'
-  let tmux_send_keys_command = 'tmux send-keys -t vim-test ' . shellescape(a:cmd . '; bash') . ' Enter'
-  let tmux_switch_window_command = 'tmux select-window -t vim-test'
-  call system(tmux_new_window_command)
-  call system(tmux_send_keys_command)
-  call system(tmux_switch_window_command)
+  let l:original_type = get(g:, 'VimuxOrientation', '')
+
+  let g:VimuxRunnerType = "window"
+  let g:VimuxRunnerName = "vim-test"
+
+  call VimuxRunCommand(a:cmd)
+
+  let g:VimuxRunnerType = l:original_type
 endfunction
 
-let g:test#custom_strategies = {'tmux_window': function('TmuxWindowStrategy')}
+function! TmuxWindowFocusStrategy(cmd) abort
+  let l:original_type = get(g:, 'VimuxOrientation', '')
+
+  let g:VimuxRunnerType = "window"
+  let g:VimuxRunnerName = "vim-test"
+
+  call VimuxRunCommand(a:cmd)
+  call system('tmux select-window -t vim-test')
+
+  let g:VimuxRunnerType = l:original_type
+endfunction
+
+let g:test#custom_strategies = {'tmux_window': function('TmuxWindowStrategy'), 'tmux_window_focus': function('TmuxWindowFocusStrategy')}
 ]])
 
 vim.cmd([[
@@ -62,7 +79,8 @@ vim.cmd([[
     \ 'nearest':   'vimux',
     \ 'last':   'vimux',
     \ 'visit':   'vimux',
-    \ 'suite':   'tmux_window',
-    \ 'file':   'tmux_window',
+    \ 'suite':   'tmux_window_focus',
+    \ 'file':   'tmux_window_focus',
   \}
 ]])
+
