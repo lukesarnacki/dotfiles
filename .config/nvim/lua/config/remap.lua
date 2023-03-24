@@ -84,16 +84,18 @@ vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<CR>', { noremap = true, si
 vim.api.nvim_set_keymap('n', '<leader>ta', ':TestSuite<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>twa', ':lua run_test_and_watch("TestSuite")<CR>',
+  { noremap = true, silent = true })
 
 -- vim-test with debugger
 vim.api.nvim_set_keymap('n', '<leader>tdn', ':lua run_test_and_continue_dap("TestNearest")<CR>',
-{ noremap = true, silent = true })
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tdf', ':lua run_test_and_continue_dap("TestFile")<CR>',
-{ noremap = true, silent = true })
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tda', ':lua run_test_and_continue_dap("TestSuite")<CR>',
-{ noremap = true, silent = true })
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tdl', ':lua run_test_and_continue_dap("TestLast")<CR>',
-{ noremap = true, silent = true })
+  { noremap = true, silent = true })
 
 
 -- fugitive
@@ -113,3 +115,7 @@ vim.keymap.set('n', '<leader>o', '<cmd>SymbolsOutline<CR>')
 -- DAP, Debugger
 vim.keymap.set("n", "<leader>db", "<Cmd>lua require('dap').toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>dc", "<Cmd>lua require('dap').continue()<CR>")
+vim.keymap.set("n", "<leader>do", "<Cmd>lua require('dap').step_over()<CR>")
+vim.keymap.set("n", "<leader>di", "<Cmd>lua require('dap').step_over()<CR>")
+vim.keymap.set("n", "<leader>dso", "<Cmd>lua require('dap').step_over()<CR>")
+vim.keymap.set("n", "<leader>dr", "<Cmd>lua require('dap').repl.open()<CR>")

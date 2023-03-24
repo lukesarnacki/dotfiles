@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
 
   use('tpope/vim-fugitive')
+  use('airblade/vim-gitgutter')
 
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -108,4 +109,6 @@ return require('packer').startup(function(use)
     -- For using vimux strategy
     requires = { 'preservim/vimux' }
   }
+
+  use 'puremourning/vimspector'
 end)
