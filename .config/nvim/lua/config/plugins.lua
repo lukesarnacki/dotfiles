@@ -17,7 +17,10 @@ return require('packer').startup(function(use)
 
   use('mbbill/undotree')
 
-  use('tpope/vim-fugitive')
+  use { 'tpope/vim-fugitive',
+    requires = 'tpope/vim-rhubarb'
+  }
+
   use('airblade/vim-gitgutter')
 
   use {

@@ -440,3 +440,5 @@ tmux_conf_uninstall_plugins_on_reload=true
 # Preserve position when copying with 'y' key
 unbind -T copy-mode-vi y
 bind -T copy-mode-vi y send -X copy-selection
+
+bind L send-keys -R
