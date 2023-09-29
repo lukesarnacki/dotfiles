@@ -1,0 +1,176 @@
+{
+  "terminal.integrated.allowChords": false,
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "workbench.editor.showTabs": false,
+  "workbench.editor.navigationScope": "editor",
+  "editor.tabSize": 2,
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+  "rubyTestExplorer.logpanel": true,
+  "rubyTestExplorer.debugCommand": "bundle exec rdebug-ide",
+  "rubyTestExplorer.rspecCommand": "bundle exec rspec",
+  "editor.minimap.enabled": false,
+  "git.autofetch": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "dev.containers.defaultExtensions": [
+    "esbenp.prettier-vscode",
+    "bungcip.better-toml",
+    "bierner.github-markdown-preview",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "waderyan.gitblame",
+    "arturock.gitstash",
+    "bierner.markdown-emoji",
+    "esbenp.prettier-vscode",
+    "bierner.markdown-yaml-preamble",
+    "bierner.markdown-mermaid",
+    "bierner.markdown-preview-github-styles",
+    "bierner.markdown-checkbox",
+    "ms-vsliveshare.vsliveshare",
+    "mutantdino.resourcemonitor",
+    "atlassian.atlascode",
+    "njpwerner.autodocstring",
+    "ms-azuretools.vscode-docker",
+    "ziyasal.vscode-open-in-github",
+    "mquandalle.graphql",
+    "apollographql.vscode-apollo",
+    "ms-vscode-remote.remote-containers",
+    "Orta.vscode-jest",
+    "cweijan.vscode-mysql-client2",
+    "foxundermoon.next-js",
+    "ms-ossdata.vscode-postgresql",
+    "mtxr.sqltools",
+    "vscodevim.vim",
+    "orsenkucher.vscode-graphql",
+    "github.copilot",
+    "github.copilot-labs",
+  ],
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "t",
+        "o"
+      ],
+      "commands": [
+        "workbench.files.action.showActiveFileInExplorer"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w",
+        "f"
+      ],
+      "commands": [
+        "search.action.openEditor"
+      ]
+    }
+  ],
+  "solargraph.useBundler": false,
+  "editor.inlineSuggest.enabled": true,
+  "yaml.schemas": {
+    "file:///root/.vscode-server/extensions/atlassian.atlascode-3.0.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  //"solargraph.commandPath": "/cache/store/bundle/gems/solargraph-0.10.3/bin/solargraph",
+  "ruby.rubocop.useBundler": true,
+  "settingsSync.ignoredExtensions": [
+    "ms-vscode.test-adapter-converter"
+  ],
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/*.pyo": true,
+    ".git": true,
+    ".coverage": true,
+    ".coverage.*": true,
+    ".mypy_cache": true,
+    ".pytest_cache": true,
+    ".venv": true,
+    "dist": true,
+    "docs/_build": true
+  },
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    120
+  ],
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.lintOnSave": true,
+  "python.testing.pytestArgs": [
+    "-v",
+    "--reuse-db"
+  ],
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    ".",
+    "-p",
+    "*test*.py"
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.formatOnType": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.disableLanguages": [
+    "html"
+  ],
+  "editor.suggest.showStatusBar": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.scrollback": 100000,
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "yaml.schemas": {
+    "file:///root/.vscode-server/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "redhat.telemetry.enabled": false,
+  "plantuml.server": "http://localhost:54321",
+  "plantuml.render": "PlantUMLServer",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "jest.autoRun": {},
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "window.zoomLevel": 1
+}
+
