@@ -6,7 +6,7 @@ return {
     {
       "<leader>nn",
       function()
-        require("telescope").extensions.notify.notify({ layout_strategy = "vertical" })
+        require("telescope").load_extension('noice').noice({ layout_strategy = "vertical" })
       end,
     },
   },

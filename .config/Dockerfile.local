@@ -1,0 +1,27 @@
+FROM diva-store-bridge
+
+RUN echo "@edge http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+RUN apk update && apk add --no-cache \
+    neovim@edge \
+    tree-sitter@edge \
+    ripgrep \
+    fd \
+    python3 \
+    bash \
+    tmux \
+    build-base \
+    ca-certificates \
+    wget \
+    unzip \
+    gzip \
+    lazygit \
+    curl \
+    py3-pip \
+    fish \
+    xclip \
+    xsel \
+    openssh-server
+
+RUN python3 -m pip install --user --upgrade pynvim
+RUN yarn global add neovim
+RUN update-ca-certificates

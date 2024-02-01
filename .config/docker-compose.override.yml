@@ -1,0 +1,15 @@
+---
+version: "3.7"
+services:
+  mysql:
+    ports:
+      - "3306:3306"
+  postgres:
+    ports:
+      - "5432:5432"
+  store-bridge:
+    build:
+      context: ./store-bridge/
+      dockerfile: Dockerfile.local
+    volumes:
+      - ~/.config/nvim:/root/.config/nvim
