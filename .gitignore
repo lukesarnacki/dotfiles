@@ -4,3 +4,7 @@ store.session.sql
 Dockerfile.local
 docker-compose.override.yml
 lazy-lock.json
+.phpactor.json
+composer.json
+composer.lock
+
