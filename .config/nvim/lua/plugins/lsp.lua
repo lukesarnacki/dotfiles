@@ -1,7 +1,38 @@
 return {
+
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = { "intelephense" },
+    },
+  },
+
   {
     "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
     opts = {
+      ---@type lspconfig.options
+      servers = {
+        intelephense = {
+          stubs = {
+            "Core",
+            "wordpress",
+          },
+          environment = {
+            includePaths = "/home/luke/projects/woocommerce-stickermule/vendor/php-stubs",
+          },
+          files = {
+            maxSize = 5000000,
+          },
+        },
+        tsserver = {
+          init_options = {
+            hostInfo = "neovim",
+            preferences = { importModuleSpecifierPreference = "relative" },
+            tsserver = { trace = "messages" },
+          },
+        },
+      },
       diagnostics = {
         virtual_text = false,
         virtual_improved = {
