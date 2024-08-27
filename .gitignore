@@ -1,3 +1,4 @@
+.ignore
 .vscode/
 store.session.sql
 .nvim-config/
@@ -7,4 +8,5 @@ lazy-lock.json
 .phpactor.json
 composer.json
 composer.lock
+credentials/
 

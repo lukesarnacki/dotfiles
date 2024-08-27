@@ -1,9 +1,9 @@
 return {
-  { "luisiacc/gruvbox-baby" },
+  { "navarasu/onedark.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-baby",
+      colorscheme = "onedark",
     },
   },
 }

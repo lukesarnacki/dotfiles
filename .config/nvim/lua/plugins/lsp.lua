@@ -32,6 +32,21 @@ return {
             tsserver = { trace = "messages" },
           },
         },
+        vtsls = {
+          settings = {
+            typescript = {
+              preferences = {
+                importModuleSpecifier = "relative",
+              },
+              trace = {
+                server = "messages",
+              },
+            },
+          },
+          init_options = {
+            hostInfo = "neovim",
+          },
+        },
       },
       diagnostics = {
         virtual_text = false,

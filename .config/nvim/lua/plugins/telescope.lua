@@ -10,6 +10,9 @@ return {
   config = function()
     require("telescope").load_extension("live_grep_args")
   end,
+  defaults = {
+    file_ignore_patterns = { "node_modules", ".git", "dist", "build" },
+  },
   keys = {
     { "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "Buffers list" },
     { "<leader>sg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc = "Live grep" },

@@ -2,8 +2,10 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
-      "haydenmeade/neotest-jest",
-      "marilari88/neotest-vitest",
+      {
+        "haydenmeade/neotest-jest",
+        dir = "~/projects/neotest-jest/",
+      },
     },
     keys = {
       {
@@ -26,17 +28,27 @@ return {
         desc = "Run Watch",
       },
     },
-    opts = function(_, opts)
-      table.insert(
-        opts.adapters,
-        require("neotest-jest")({
-          env = { CI = true },
-          cwd = function()
-            return vim.fn.getcwd()
-          end,
-        })
-      )
-      table.insert(opts.adapters, require("neotest-vitest"))
-    end,
+    opts = {
+      adapters = {
+        ["neotest-jest"] = {},
+      },
+      quickfix = {
+        open = function() end,
+      },
+    },
+    -- opts = function(_, opts)
+    --   table.insert(opts.quickfix, {
+    --     open = function() end,
+    --   })
+    --   table.insert(
+    --     opts.adapters,
+    --     require("neotest-jest")({
+    --       cwd = function()
+    --         return vim.fn.getcwd()
+    --       end,
+    --     })
+    --   )
+    --   opts.log_level = vim.log.levels.DEBUG
+    -- end,
   },
 }
