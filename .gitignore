@@ -9,4 +9,9 @@ lazy-lock.json
 composer.json
 composer.lock
 credentials/
+tags
+!tags/
+.solargraph.yml
+.DS_Store
+.tool-versions
 
